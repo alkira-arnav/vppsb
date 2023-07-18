@@ -5,6 +5,8 @@ on: [pull_request]
 jobs:
   notion-integrate:
     runs-on: ubuntu-latest
+    env:
+        BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
