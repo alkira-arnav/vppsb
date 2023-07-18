@@ -58,7 +58,7 @@ class SlackUtils:
         Fetch token from file and create a slack client
         """
 
-        token = os.environ.get("bot_token")
+        token = os.environ.get("BOT_TOKEN")
         if token is None:
             logger.error("Missing slack bot token in %s", file_path)
             sys.exit(1)
