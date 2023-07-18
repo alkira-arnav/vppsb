@@ -50,16 +50,12 @@ class SlackUtils:
         self.block_max_text_len = 3000
         self.block_max_field_len = 2000
 
-        slack_config_file = join(dirname(__file__), "configs/slack.yaml")
-        self.__load_slack(slack_config_file)
+        self.__load_slack()
 
     def __load_slack(self, file_path=None):
         """
         Fetch token from file and create a slack client
         """
-        slack_config = load_yaml(file_path)
-        if slack_config is None:
-            sys.exit(1)
 
         token = os.environ.get("bot_token")
         if token is None:
