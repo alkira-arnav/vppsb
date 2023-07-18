@@ -61,7 +61,7 @@ class SlackUtils:
         if slack_config is None:
             sys.exit(1)
 
-        token = slack_config.get("bot_token")
+        token = os.environ.get("bot_token")
         if token is None:
             logger.error("Missing slack bot token in %s", file_path)
             sys.exit(1)
