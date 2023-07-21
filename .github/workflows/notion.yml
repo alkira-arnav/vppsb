@@ -1,6 +1,9 @@
 ---
 name: Run Notion Integration on PR Merge
-on: [pull_request]
+on:
+  pull_request:
+    types:
+      - closed
     
 jobs:
   notion-integrate:
