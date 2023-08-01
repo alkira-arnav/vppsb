@@ -3,7 +3,7 @@ on:
   pull_request:
     types: [closed]
     branches:
-      - dev
+      - master
 
 jobs:
   notion-integrate:
