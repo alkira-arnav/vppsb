@@ -1,27 +1,29 @@
+---
 name: Run Notion Integration on PR Merge
 on:
   pull_request:
-    types: [closed]
-    branches:
-      - dev
-
+    types:
+      - closed
+    
 jobs:
   notion-integrate:
     runs-on: ubuntu-latest
+    env:
+        BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
+        with:
+          ref: ${{ github.event.pull_request.head.ref }} 
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
           python-version: '3.8'
-
       - name: Install requests
         run: pip install requests
-
+      - name: Install slack_sdk
+        run: pip install slack_sdk
+      - name: Install yaml
+        run: python -m pip install pyyaml
       - name: Run Notion Integration script
-        uses: <alkira-arnav>/pm-automations@<arnav-2>
-        with:
-          repo: ${{ github.repository }}
-          pr_title: ${{ github.event.pull_request.title }}
+        run: python async_notion.py ${{ github.repository }} ${{ github.event.pull_request.title }}
