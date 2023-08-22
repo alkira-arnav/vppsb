@@ -7,21 +7,7 @@ on:
 
 jobs:
   notion-integrate:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.8'
-
-      - name: Install requests
-        run: pip install requests
-
-      - name: Run Notion Integration script
-        uses: alkira-arnav/pm-automations/.github/workflows/notion.yaml@arnav-2
-        with:
-          repo: ${{ github.repository }}
-          pr_title: ${{ github.event.pull_request.title }}
+    uses: alkira-arnav/pm-automations/.github/workflows/notion.yml@arnav-2
+    with:
+      repo: ${{ github.repository }}
+      pr_title: ${{ github.event.pull_request.title }}
