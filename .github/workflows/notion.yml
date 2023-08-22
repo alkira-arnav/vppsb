@@ -7,7 +7,7 @@ on:
 
 jobs:
   notion-integrate:
-    uses: alkira-admin/pm-automations/.github/workflows/notion.yml@arnav-2
+    uses: alkira-arnav/pm-automations/.github/workflows/notion.yml@arnav-2
     with:
       repo: ${{ github.repository }}
       pr_title: ${{ github.event.pull_request.title }}
