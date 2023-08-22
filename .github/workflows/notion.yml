@@ -21,7 +21,7 @@ jobs:
         run: pip install requests
 
       - name: Run Notion Integration script
-        uses: <alkira-arnav>/pm-automations@<arnav-2>
+        uses: alkira-arnav/pm-automations/.github/workflows/notion.yaml@arnav-2
         with:
           repo: ${{ github.repository }}
           pr_title: ${{ github.event.pull_request.title }}
